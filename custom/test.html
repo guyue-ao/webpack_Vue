@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script type="text/javascript" src='https://cdn.bootcdn.net/ajax/libs/pubsub-js/1.9.3/pubsub.js'></script> -->
+  <script type="text/javascript" src='./pubsub.js'></script>
+  <script type="text/javascript">
+    PubSub.subscribe('add',(msg,data)=>{//消息订阅
+      console.log('add1()',data)
+    });
+    const token=PubSub.subscribe('add',(msg,data)=>{
+      console.log('add2()',data)
+    });
+    PubSub.subscribe('delete',(msg,data)=>{
+      console.log('delete()',data)
+    });
+    // PubSub.unsubscribe(token);//根据token取消订阅
+    PubSub.unsubscribe('');
+    PubSub.unsubscribe('add');
+    PubSub.publish('add','nihao');//消息发布   异步发送
+    PubSub.publish('delete','nihaohao');
+    console.log('异步');
+    PubSub.publishSync('add','nihao');//同步发送
+    
+   
+
+  
+  </script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
-// import {Button} from 'mint-ui'
+import {Button,Toast} from 'mint-ui'
 import App from './App.vue'
-import router from './router/index'
 
 
 
@@ -12,7 +11,7 @@ import router from './router/index'
 // Vue.prototype.$golbalEventBus=new Vue();
 //注册全局组件
 // Vue.componet('App',App)
-
+Vue.component(Button.name,Button)
 
 Vue.config.productionTip=false;//不显示不是生产环境提示
 new Vue({
@@ -23,6 +22,5 @@ new Vue({
     App:App,
     
   },
-  template:'<App/>',
-  router:router,//所有组件都能通过$router属性看到router对象，所有组件都有了一个代表当前路由的data数据：$route
+  template:'<App/>'
 })

@@ -125,12 +125,23 @@
             document.getElementById('root').innerHTML = '<h1>Hello222</h1>'
 
 ## 5. 搭建vue的环境
+
+{
+  解决方法一：在package.json中将vue-loader的版本改为14.0.0以下的版本
+缺点：有可能会报vue-loader已经被销毁的错误，需要多尝试合适的版本，麻烦~
+解决方法二：配置vue-loader-plugin插件
+执行命令：npm install vue-loader-plugin安装插件，在webpack.config.js中配置方法：
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+}
+
     0). 文档:
         https://vue-loader.vuejs.org/zh/
 
     1). 下载依赖包:
         yarn add vue
         yarn add -D vue-loader vue-template-compiler
+        npm install vue-loader-plugin
     
     2). 配置
         const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -168,4 +179,4 @@
     使用开发环境
         npm run dev   ==> webpack-dev-server
         1). 在内存中进行编译打包, 生成内存中的打包文件
-        2). 调动服务器, 运行内存中的打包文件   ===> 可以通过浏览器虚拟路径访问
+        2). 调动服务器, 运行内存中的打包文件（不生产本地打包文件）   ===> 可以通过浏览器虚拟路径访问

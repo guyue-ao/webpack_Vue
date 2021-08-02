@@ -1,7 +1,7 @@
 import Vue from 'vue'
 // import {Button} from 'mint-ui'
 import App from './App.vue'
-import router from './router/index'
+import store from './vuex/store.js'
 
 
 
@@ -24,5 +24,6 @@ new Vue({
     
   },
   template:'<App/>',
-  router:router,//所有组件都能通过$router属性看到router对象，所有组件都有了一个代表当前路由的data数据：$route
+  //router:router,//所有组件都能通过$router属性看到router对象，所有组件都有了一个代表当前路由的data数据：$route
+  store,//所有的组件对象都能看到一个指定store属性：$store
 })

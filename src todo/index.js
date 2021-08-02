@@ -1,9 +1,7 @@
 import Vue from 'vue'
-// import {Button} from 'mint-ui'
 import App from './App.vue'
-import router from './router/index'
 
-
+import './base.css'
 
 //创建一个全局的用于绑定事件监听和分发事件的对象：Global Event Bus 全局事件总线
 //事件总线对象就是一个vm
@@ -12,17 +10,16 @@ import router from './router/index'
 // Vue.prototype.$golbalEventBus=new Vue();
 //注册全局组件
 // Vue.componet('App',App)
-
-
 Vue.config.productionTip=false;//不显示不是生产环境提示
 new Vue({
-  
+  beforeCreate(){
+    Vue.prototype.$eventBus=this;
+  },
   el:'#root',
   //注册局部组件
   components:{//注册组件(后面才能写组件标签)
     App:App,
     
   },
-  template:'<App/>',
-  router:router,//所有组件都能通过$router属性看到router对象，所有组件都有了一个代表当前路由的data数据：$route
+  template:'<App/>'
 })
